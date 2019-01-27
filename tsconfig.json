@@ -1,0 +1,13 @@
+{
+    "extends": "./node_modules/@sentry/typescript/tsconfig.json",
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "commonjs",
+        "declaration": true,
+        "baseUrl": ".",
+        "rootDir": "src",
+        "outDir": "dist",
+        "strict": true,
+        "noUnusedParameters": false,
+    }
+  }
