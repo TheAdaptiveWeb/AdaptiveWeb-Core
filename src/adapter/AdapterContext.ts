@@ -14,8 +14,8 @@
  */
 
 import { Adapter } from './Adapter';
-import { XHROptions } from 'src/service';
-import { Wrapper } from 'src/wrapper';
+import { XHROptions } from '../service';
+import { Wrapper } from '../wrapper';
 
 export interface IAdapterContext {
     request(url: string, options: XHROptions): Promise<any>;
