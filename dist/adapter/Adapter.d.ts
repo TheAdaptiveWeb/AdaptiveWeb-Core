@@ -12,7 +12,7 @@
  *  express or implied. See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-import { AdapterContext } from './AdapterContext';
+import { IAdapterContext } from './AdapterContext';
 import { AdapterPreferenceSchema } from './AdapterPreferenceSchema';
 /**
  * Adapters are adaptive modules to be injected into the page.
@@ -46,5 +46,10 @@ export declare class Adapter {
     /**
      * Executes the adapter code.
      */
-    execute(aw: AdapterContext): void;
+    execute(aw: IAdapterContext): void;
+    /**
+     * Creates an instance of an Adapter from an object or string.
+     * @param obj the object to initiate from. Can be either a JSON string or object.
+     */
+    static fromObject(obj: any): Adapter;
 }

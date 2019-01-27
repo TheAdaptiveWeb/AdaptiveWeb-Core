@@ -38,6 +38,15 @@ class Adapter {
             eval(rawScript);
         })(aw, this.script, window);
     }
+    /**
+     * Creates an instance of an Adapter from an object or string.
+     * @param obj the object to initiate from. Can be either a JSON string or object.
+     */
+    static fromObject(obj) {
+        if (typeof obj === 'string')
+            obj = JSON.parse(obj);
+        return new Adapter(obj.uuid, obj.name, obj.description, obj.version, obj.script, obj.preferenceSchema);
+    }
 }
 exports.Adapter = Adapter;
 //# sourceMappingURL=Adapter.js.map

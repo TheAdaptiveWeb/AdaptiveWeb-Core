@@ -45,6 +45,6 @@ export interface StorageService {
      * Fetches the value stored at the given key
      * @param key the key to retrieve
      */
-    get(key: string): Promise<any>;
+    get(key: string, type?: StorageType): Promise<any>;
 
 }

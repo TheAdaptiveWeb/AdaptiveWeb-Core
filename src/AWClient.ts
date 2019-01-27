@@ -22,34 +22,37 @@ import { AdapterContext } from './adapter/AdapterContext';
  */
 export class AWClient {
 
-    wrapper: Wrapper;
-    adapters: Adapter[] = [];
+    private wrapper: Wrapper;
+    private adapters: { [uuid: string]:  Adapter } = {};
 
     constructor(wrapper: Wrapper) {
         this.wrapper = wrapper;
     }
 
     /**
-     * Execute the attached adapters
+     * Get the adapters
      */
-    executeAdapters() {
-        this.adapters.forEach((executingAdapter: Adapter) => {
-            const aw = new AdapterContext(this.wrapper, executingAdapter);
-            executingAdapter.execute(aw);
-        });
+    getAdapters() {
+        return this.adapters;
+    }
+
+    getAdapterContext(adapter: Adapter) {
+        return new AdapterContext(this.wrapper, adapter);
     }
 
     /**
      * Attaches an adapter
      * @param adapter the adapter to attach
      */
-    attachAdapter(adapter: Adapter) {
-        this.adapters.forEach((attachedAdapter: Adapter) => {
-            if (attachedAdapter.uuid == adapter.uuid) {
-                throw new Error('An adapter with the UUID ' + adapter.uuid + ' is already attached.');
+    attachAdapter(adapter: Adapter): Promise<any> {
+        return new Promise<any>((resolve, reject) => {
+            if (this.adapters[adapter.uuid] != undefined) {
+                reject(new Error('An adapter with the UUID ' + adapter.uuid + ' is already attached.'));
+            } else {
+                this.adapters[adapter.uuid] = adapter;
+                resolve();
             }
-        });
-        this.adapters.push(adapter);
+        })
     }
 
     /**
@@ -57,9 +60,7 @@ export class AWClient {
      * @param uuid the uuid of the adapter to detach
      */
     detachAdapter(uuid: string) {
-        this.adapters = this.adapters.filter((adapter: Adapter) => {
-            return adapter.uuid != uuid;
-        });
+        delete this.adapters[uuid];
     }
 
     /**

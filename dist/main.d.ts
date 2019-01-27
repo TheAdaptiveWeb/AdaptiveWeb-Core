@@ -13,7 +13,7 @@
  *  permissions and limitations under the License.
  */
 import './reporting';
-export * from './Client';
+export * from './AWClient';
 export * from './wrapper';
 export * from './adapter';
 export * from './service';

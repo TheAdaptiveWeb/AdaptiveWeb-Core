@@ -13,7 +13,7 @@
  *  permissions and limitations under the License.
  */
 
-import { AdapterContext } from './AdapterContext';
+import { IAdapterContext } from './AdapterContext';
 import { AdapterPreferenceSchema } from './AdapterPreferenceSchema';
 
 /**
@@ -64,10 +64,20 @@ export class Adapter {
     /**
      * Executes the adapter code.
      */
-    execute(aw: AdapterContext) {
-        (function(aw: AdapterContext, rawScript: string, window: Window) { 
+    execute(aw: IAdapterContext) {
+        (function(aw: IAdapterContext, rawScript: string, window: Window) { 
             eval(rawScript); 
         })(aw, this.script, window);
+    }
+
+    /**
+     * Creates an instance of an Adapter from an object or string.
+     * @param obj the object to initiate from. Can be either a JSON string or object.
+     */
+    static fromObject(obj: any): Adapter {
+        if (typeof obj === 'string') obj = JSON.parse(obj);
+
+        return new Adapter(obj.uuid, obj.name, obj.description, obj.version, obj.script, obj.preferenceSchema);
     }
 
 }

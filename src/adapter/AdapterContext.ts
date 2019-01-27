@@ -13,14 +13,19 @@
  *  permissions and limitations under the License.
  */
 
-import { Wrapper } from 'src/wrapper';
 import { Adapter } from './Adapter';
 import { XHROptions } from 'src/service';
+import { Wrapper } from 'src/wrapper';
+
+export interface IAdapterContext {
+    request(url: string, options: XHROptions): Promise<any>;
+    getPreferences(): Promise<any>;
+}
 
 /**
  * Adapter Context exposes a limited interface for adapters
  */
-export class AdapterContext {
+export class AdapterContext implements IAdapterContext {
 
     private wrapper: Wrapper;
     private adapter: Adapter;
@@ -42,7 +47,7 @@ export class AdapterContext {
     /**
      * Returns the preferences of this adapter
      */
-    getPreferences(): any {
+    getPreferences(): Promise<any> {
         return this.wrapper.storage.get(this.adapter.uuid + '/preferences');
     }
 
