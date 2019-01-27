@@ -16,7 +16,7 @@
 // Register reporting
 import './reporting';
 
-export * from './AdaptiveWeb';
+export * from './Client';
 export * from './wrapper';
 export * from './adapter';
 export * from './service';

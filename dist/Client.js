@@ -16,9 +16,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const AdapterContext_1 = require("./adapter/AdapterContext");
 /**
- * Adapters are adaptive modules to be injected into the page.
+ * Maintains application state.
  */
-class AdaptiveWeb {
+class AWClient {
     constructor(wrapper) {
         this.adapters = [];
         this.wrapper = wrapper;
@@ -62,5 +62,5 @@ class AdaptiveWeb {
         this.wrapper.storage.set(uuid + '/preferences', preferences);
     }
 }
-exports.default = AdaptiveWeb;
-//# sourceMappingURL=AdaptiveWeb.js.map
+exports.AWClient = AWClient;
+//# sourceMappingURL=Client.js.map

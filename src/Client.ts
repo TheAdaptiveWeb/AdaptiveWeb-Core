@@ -18,9 +18,9 @@ import { Adapter } from "./adapter/Adapter";
 import { AdapterContext } from './adapter/AdapterContext';
 
 /**
- * Adapters are adaptive modules to be injected into the page.
+ * Maintains application state.
  */
-export default class AdaptiveWeb {
+export class AWClient {
 
     wrapper: Wrapper;
     adapters: Adapter[] = [];
