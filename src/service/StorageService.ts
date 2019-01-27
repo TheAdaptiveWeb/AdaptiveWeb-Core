@@ -39,12 +39,12 @@ export interface StorageService {
      * @param value the value to set the given entry to
      * @param type the type of storage, defaults to StorageType.SYNC
      */
-    set(key: string, value: any, type?: StorageType): boolean;
+    set(key: string, value: any, type?: StorageType): Promise<any>;
 
     /**
      * Fetches the value stored at the given key
      * @param key the key to retrieve
      */
-    get(key: string): any;
+    get(key: string): Promise<any>;
 
 }
