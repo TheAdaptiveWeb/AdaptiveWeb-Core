@@ -4,6 +4,8 @@
 <div align="center"><i>New to AdaptiveWeb? Check out our <a href="#">introduction for developers</a>.</i></div>
 <br>
 
+[![Build Status](https://travis-ci.org/TheAdaptiveWeb/AdaptiveWeb-Core.svg?branch=master)](https://travis-ci.org/TheAdaptiveWeb/AdaptiveWeb-Core)
+
 AdaptiveWeb Core provides an abstraction layer for developers to build adaptive web accessibility modules (_adapters_) that run across browsers and platforms.
 
 ## License
