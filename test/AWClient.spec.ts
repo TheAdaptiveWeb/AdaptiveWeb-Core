@@ -1,11 +1,7 @@
 import { expect } from 'chai';
 import 'mocha';
 import { Wrapper, AWClient, Adapter } from '../src/main';
-import { getGenericWrapper } from './helper';
-
-function generateAdapter(uuid: string): Adapter {
-    return new Adapter(uuid, '', '', '', '');
-}
+import { getGenericWrapper, generateAdapter } from './helper';
 
 describe('AWClient tests', () => {
 

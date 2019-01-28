@@ -6,7 +6,7 @@
   "types": "./dist/main.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "nyc mocha -r ts-node/register test/**/*.spec.ts && nyc report --reporter=text-lcov | coveralls"
+    "test": "nyc mocha -r ts-node/register -r jsdom-global/register test/**/*.spec.ts && nyc report --reporter=text-lcov | coveralls"
   },
   "nyc": {
     "extension": [
@@ -39,6 +39,8 @@
     "@types/mocha": "^5.2.5",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
+    "jsdom": "13.2.0",
+    "jsdom-global": "3.0.2",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
     "source-map-support": "^0.5.10",
