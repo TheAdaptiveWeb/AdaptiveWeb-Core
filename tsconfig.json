@@ -32,5 +32,6 @@
             "mockTypeScriptVersion": false
         }
         ]
-    }
+    },
+    "exclude": ["node_module", "./dist", "global.d.ts", "./test"]
 }
