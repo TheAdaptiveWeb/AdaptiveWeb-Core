@@ -45,7 +45,7 @@ export class XHROptions {
     /**
      * Whether the request should be sent asynchronously. Defaults to true.
      */
-    async?: boolean = true;
+    async: boolean;
     /**
      * The username for HTTP authorization.
      */
@@ -71,6 +71,18 @@ export class XHROptions {
      */
     deserialize: Function = JSON.parse;
 
+    constructor(options: any = {}) {
+        this.method = options.method || 'GET';
+        this.data = options.data || {};
+        this.async = options.async || true;
+        this.user = options.user;
+        this.password = options.password;
+        this.withCredentials = options.withCredentials || false;
+        this.timeout = options.timeout;
+        this.serialize = options.serialize || JSON.stringify;
+        this.deserialize = options.deserialize || JSON.parse;
+    }
+
     /**
      * Encodes url parameters based on the data set.
      * 
@@ -85,11 +97,7 @@ export class XHROptions {
         Object.keys(this.data).forEach((key: string) => {
             if (url.indexOf(':' + key) >= 0) {
                 let regex: RegExp = new RegExp(':' + key, 'g');
-                if (typeof this.data[key] === 'string') {
-                    url = url.replace(regex, this.data[key]);
-                } else {
-                    url = url.replace(regex, this.serialize(this.data[key]));
-                }
+                url = url.replace(regex, this.data[key]);
             }
         });
         return url;
