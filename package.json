@@ -1,7 +1,7 @@
 {
   "name": "adaptiveweb",
-  "version": "1.0.0a6",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Adaptive Web Accessibility Toolkit",
   "main": "./dist/main.js",
   "types": "./dist/main.d.ts",
   "scripts": {
