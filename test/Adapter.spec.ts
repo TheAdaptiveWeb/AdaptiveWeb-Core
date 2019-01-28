@@ -1,16 +1,25 @@
 import { expect } from 'chai';
 import 'mocha';
-import { Adapter } from '../src/main';
-
-let adapterObj: any = {
-    uuid: '0855cbc4-fa58-4d1b-a206-b07338f365d7',
-    name: 'TestAdapter',
-    description: 'testAdapter_description',
-    version: '1.0.0',
-    preferenceSchema: {}
-}
+import { Adapter, Wrapper, AdapterContext } from '../src/main';
+import { getGenericWrapper } from './helper';
 
 describe('Adapter spec', () => {
+
+    let adapterObj: any, wrapper: Wrapper;
+
+    before(() => {
+        adapterObj = {
+            uuid: '0855cbc4-fa58-4d1b-a206-b07338f365d7',
+            name: 'TestAdapter',
+            description: 'testAdapter_description',
+            version: '1.0.0',
+            script: '',
+            preferenceSchema: {}
+        }
+
+        wrapper = getGenericWrapper();
+    })
+
 
     it('should initiate from object', () => {
         let adapter = Adapter.fromObject(adapterObj);
@@ -29,5 +38,18 @@ describe('Adapter spec', () => {
         expect(adapter.version).to.be.string(adapterObj.version);
         expect(adapter.preferenceSchema).to.deep.equal(adapterObj.preferenceSchema);
     });
+
+    it('should be able to execute adapter', () => {
+        // Consider better unit testing for eval
+        let adapter = new Adapter(adapterObj.uuid,
+                                  adapterObj.name,
+                                  adapterObj.description,
+                                  adapterObj.version,
+                                  adapterObj.script,
+                                  adapterObj.preferenceSchema);
+        const window: any = {}; // adapter.execute should be called from the content script
+        window;
+        adapter.execute(new AdapterContext(wrapper, adapter));
+    })
 
 });

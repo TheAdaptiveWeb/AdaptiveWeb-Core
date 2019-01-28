@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import 'mocha';
-import { Wrapper, XHRService, StorageService, AWClient, Adapter } from '../src/main';
+import { Wrapper, AWClient, Adapter } from '../src/main';
+import { getGenericWrapper } from './helper';
 
 function generateAdapter(uuid: string): Adapter {
     return new Adapter(uuid, '', '', '', '');
@@ -8,15 +9,11 @@ function generateAdapter(uuid: string): Adapter {
 
 describe('AWClient tests', () => {
 
-    let emptyPromise = new Promise<any>((r, e) => {});
+    let wrapper: Wrapper, awClient: AWClient;
 
-    let wrapper = new (class _ extends Wrapper {
-        name = '_';
-        xhr = new (class _xhr implements XHRService { request(a: any, b: any){return emptyPromise;}})();
-        storage = new (class _storage implements StorageService { get(a: any){return emptyPromise;}set(a:any,b:any){return emptyPromise;}})();
-    })();
-
-    let awClient: AWClient;
+    before(() => {
+        wrapper = getGenericWrapper();
+    })
 
     beforeEach(() => {
         awClient = new AWClient(wrapper);
@@ -54,6 +51,17 @@ describe('AWClient tests', () => {
             awClient.detachAdapter(adapter.uuid);
             expect(awClient.getAdapters()).to.deep.equal({});
             done();
+        });
+    });
+
+    it('should save adapter preferences', (done) => {
+        let adapter: Adapter = generateAdapter('uuid1');
+        awClient.attachAdapter(adapter).then((response: any) => {
+            awClient.setAdapterPreferences(adapter.uuid, {});
+            wrapper.storage.get('uuid1/preferences').then((res: any) => {
+                expect(res).to.not.be.undefined;
+                done();
+            });
         });
     });
 
