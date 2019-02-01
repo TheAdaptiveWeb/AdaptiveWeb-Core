@@ -26,10 +26,13 @@ export class AWClient {
     private adapters: { [uuid: string]:  Adapter } = {};
 
     constructor(wrapper: Wrapper) {
-        this.wrapper = wrapper;
-        wrapper.storage.get('adapters').then((adapters: any) => {
+        this.wrapper = wrapper;   
+    }
+
+    init(): Promise<any> {
+        return this.wrapper.storage.get('adapters').then((adapters: any) => {
             this.adapters = adapters || {};
-        })
+        });
     }
 
     /**
@@ -54,7 +57,7 @@ export class AWClient {
             } else {
                 this.adapters[adapter.uuid] = adapter;
                 this.wrapper.storage.set('adapters', this.adapters);
-                resolve();
+                resolve(this.adapters);
             }
         })
     }

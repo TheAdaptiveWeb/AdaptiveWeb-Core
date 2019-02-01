@@ -22,12 +22,10 @@ describe('AWClient tests', () => {
 
     let wrapper: Wrapper, awClient: AWClient;
 
-    before(() => {
-        wrapper = getGenericWrapper();
-    })
-
     beforeEach(() => {
+        wrapper = getGenericWrapper();
         awClient = new AWClient(wrapper);
+        return awClient.init();
     });
 
     it('should return list of adapters', () => {
@@ -39,11 +37,10 @@ describe('AWClient tests', () => {
         expect(awClient.getAdapterContext(adapter)).to.not.be.undefined;
     });
 
-    it('should attach an adapter', (done) => {
+    it('should attach an adapter', () => {
         let adapter: Adapter = generateAdapter('uuid1');
-        awClient.attachAdapter(adapter).then((response: any) => {
+        return awClient.attachAdapter(adapter).then(({}) => {
             expect(awClient.getAdapters()['uuid1']).to.not.be.undefined;
-            done();
         });
     });
 
@@ -56,12 +53,11 @@ describe('AWClient tests', () => {
         });
     });
 
-    it('should remove attached adapter with detachAdapter', (done) => {
+    it('should remove attached adapter with detachAdapter', () => {
         let adapter: Adapter = generateAdapter('uuid1');
-        awClient.attachAdapter(adapter).then((response: any) => {
+        return awClient.attachAdapter(adapter).then((response: any) => {
             awClient.detachAdapter(adapter.uuid);
             expect(awClient.getAdapters()).to.deep.equal({});
-            done();
         });
     });
 
