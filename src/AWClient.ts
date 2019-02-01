@@ -27,6 +27,9 @@ export class AWClient {
 
     constructor(wrapper: Wrapper) {
         this.wrapper = wrapper;
+        wrapper.storage.get('adapters').then((adapters: any) => {
+            this.adapters = adapters || {};
+        })
     }
 
     /**
@@ -50,6 +53,7 @@ export class AWClient {
                 reject(new Error('An adapter with the UUID ' + adapter.uuid + ' is already attached.'));
             } else {
                 this.adapters[adapter.uuid] = adapter;
+                this.wrapper.storage.set('adapters', this.adapters);
                 resolve();
             }
         })
@@ -61,6 +65,7 @@ export class AWClient {
      */
     detachAdapter(uuid: string) {
         delete this.adapters[uuid];
+        this.wrapper.storage.set('adapters', this.adapters);
     }
 
     /**
