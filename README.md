@@ -12,6 +12,6 @@ AdaptiveWeb Core provides an abstraction layer for developers to build adaptive 
 This project is licensed under the Mozilla Public License 2.0. For full terms, please read the [LICENSE](/TheAdaptiveWeb/AdaptiveWeb-Core/blob/master/LICENSE) file.
 
 ## Acknowledgements
-<p align="center">Automated testing provided by <a href="https://browserstack.com">BrowserStack</a>.</p>
+<p align="center">Automated browser testing provided by <a href="https://browserstack.com">BrowserStack</a>.</p>
 
 <div align="center"><a href="https://browserstack.com"><image height="40" src="https://github.com/TheAdaptiveWeb/AdaptiveWeb-Core/raw/master/.github_images/Browserstack-logo%402x.png" /></a></div>
