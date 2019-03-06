@@ -51,9 +51,9 @@ class AWClient {
                 this.wrapper.storage.set('adapters', this.adapters);
                 // Set this adapter's default preferences
                 let preferences = {};
-                for (let key in Object.keys(adapter.preferenceSchema)) {
+                Object.keys(adapter.preferenceSchema).forEach(key => {
                     preferences[key] = adapter.preferenceSchema[key].default;
-                }
+                });
                 this.setAdapterPreferences(adapter.uuid, preferences);
                 resolve(this.adapters);
             }
