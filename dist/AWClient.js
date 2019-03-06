@@ -44,7 +44,7 @@ class AWClient {
     attachAdapter(adapter) {
         return new Promise((resolve, reject) => {
             if (this.adapters[adapter.uuid] != undefined && this.adapters[adapter.uuid].version === adapter.version) {
-                reject(new Error(`An adapter with the UUID ${adapter.uuid} (version ${adapter.version}) is already attached.`));
+                reject(`An adapter with the UUID ${adapter.uuid} (version ${adapter.version}) is already attached.`);
             }
             else {
                 this.adapters[adapter.uuid] = adapter;
@@ -56,6 +56,7 @@ class AWClient {
                 });
                 this.setAdapterPreferences(adapter.uuid, preferences);
                 resolve(this.adapters);
+                return;
             }
         });
     }
