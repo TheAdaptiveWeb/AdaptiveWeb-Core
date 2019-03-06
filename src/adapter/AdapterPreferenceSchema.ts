@@ -42,4 +42,8 @@ export class AdapterPreferenceSchemaDefinition {
      * A user-friendly description for this field
      */
     description: string = '';
+    /**
+     * Optional abstract array for types that require additional options
+     */
+    options?: any[];
 }
