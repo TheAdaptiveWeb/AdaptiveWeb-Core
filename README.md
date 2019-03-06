@@ -1,4 +1,3 @@
-
 <div align="center"><img width="100" src="https://avatars2.githubusercontent.com/u/34218781?s=200&v=4" /></div>
 <h1 align="center">AdaptiveWeb Core</h1>
 <div align="center"><i>New to AdaptiveWeb? Check out our <a href="#">introduction for developers</a>.</i></div>
