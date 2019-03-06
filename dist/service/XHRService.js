@@ -18,17 +18,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Contains options for an XHR request
  */
 class XHROptions {
-    constructor() {
+    constructor(options = {}) {
         /**
          * The HTTP method to use. Allowed values are GET, POST, PUT, PATCH, DELETE, HEAD, or OPTIONS.
          *
          * Defaults to GET.
          */
         this.method = 'GET';
-        /**
-         * Whether the request should be sent asynchronously. Defaults to true.
-         */
-        this.async = true;
         /**
          * Whether to send cookies to 3rd party domains. Defaults to false.
          */
@@ -41,6 +37,15 @@ class XHROptions {
          * The method used to deserialize data. Defaults to JSON.parse.
          */
         this.deserialize = JSON.parse;
+        this.method = options.method || 'GET';
+        this.data = options.data || {};
+        this.async = options.async || true;
+        this.user = options.user;
+        this.password = options.password;
+        this.withCredentials = options.withCredentials || false;
+        this.timeout = options.timeout;
+        this.serialize = options.serialize || JSON.stringify;
+        this.deserialize = options.deserialize || JSON.parse;
     }
     /**
      * Encodes url parameters based on the data set.
@@ -56,12 +61,7 @@ class XHROptions {
         Object.keys(this.data).forEach((key) => {
             if (url.indexOf(':' + key) >= 0) {
                 let regex = new RegExp(':' + key, 'g');
-                if (typeof this.data[key] === 'string') {
-                    url = url.replace(regex, this.data[key]);
-                }
-                else {
-                    url = url.replace(regex, this.serialize(this.data[key]));
-                }
+                url = url.replace(regex, this.data[key]);
             }
         });
         return url;

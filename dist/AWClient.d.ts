@@ -22,6 +22,7 @@ export declare class AWClient {
     private wrapper;
     private adapters;
     constructor(wrapper: Wrapper);
+    init(): Promise<any>;
     /**
      * Get the adapters
      */

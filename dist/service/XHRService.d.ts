@@ -40,7 +40,7 @@ export declare class XHROptions {
     /**
      * Whether the request should be sent asynchronously. Defaults to true.
      */
-    async?: boolean;
+    async: boolean;
     /**
      * The username for HTTP authorization.
      */
@@ -65,6 +65,7 @@ export declare class XHROptions {
      * The method used to deserialize data. Defaults to JSON.parse.
      */
     deserialize: Function;
+    constructor(options?: any);
     /**
      * Encodes url parameters based on the data set.
      *
