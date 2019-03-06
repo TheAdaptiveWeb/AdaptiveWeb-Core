@@ -42,7 +42,11 @@ export declare class Adapter {
      * The script itself. Represented as a string to allow for an eval call after being injected into the page.
      */
     script: string;
-    constructor(uuid: string, name: string, description: string, version: string, script: string, preferenceSchema?: AdapterPreferenceSchema);
+    /**
+     * Tags that this adapter
+     */
+    tags: string[];
+    constructor(uuid: string, name: string, description: string, version: string, script?: string, tags?: string[], preferenceSchema?: AdapterPreferenceSchema);
     /**
      * Executes the adapter code.
      */

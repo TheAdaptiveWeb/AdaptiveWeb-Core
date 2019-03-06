@@ -44,13 +44,18 @@ export class Adapter {
     /**
      * The script itself. Represented as a string to allow for an eval call after being injected into the page.
      */
-    script: string = '';
+    script: string;
+    /**
+     * Tags that this adapter
+     */
+    tags: string[];
 
     constructor(uuid: string,
                 name: string,
                 description: string,
                 version: string,
-                script: string,
+                script: string = '',
+                tags: string[] = [],
                 preferenceSchema: AdapterPreferenceSchema = {}
                 ) {
         this.uuid = uuid;
@@ -58,6 +63,7 @@ export class Adapter {
         this.description = description;
         this.version = version;
         this.script = script;
+        this.tags = tags;
         this.preferenceSchema = preferenceSchema;
     }
     

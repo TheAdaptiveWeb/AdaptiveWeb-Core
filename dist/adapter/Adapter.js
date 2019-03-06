@@ -18,16 +18,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Adapters are adaptive modules to be injected into the page.
  */
 class Adapter {
-    constructor(uuid, name, description, version, script, preferenceSchema = {}) {
-        /**
-         * The script itself. Represented as a string to allow for an eval call after being injected into the page.
-         */
-        this.script = '';
+    constructor(uuid, name, description, version, script = '', tags = [], preferenceSchema = {}) {
         this.uuid = uuid;
         this.name = name;
         this.description = description;
         this.version = version;
         this.script = script;
+        this.tags = tags;
         this.preferenceSchema = preferenceSchema;
     }
     /**
