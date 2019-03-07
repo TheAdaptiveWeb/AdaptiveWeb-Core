@@ -50,9 +50,9 @@ export class AWClient {
      * Attaches an adapter
      * @param adapter the adapter to attach
      */
-    attachAdapter(adapter: Adapter): Promise<any> {
+    attachAdapter(adapter: Adapter, replace: boolean = false): Promise<any> {
         return new Promise<any>((resolve, reject) => {
-            if (this.adapters[adapter.uuid] != undefined && this.adapters[adapter.uuid].version === adapter.version) {
+            if (this.adapters[adapter.uuid] != undefined && this.adapters[adapter.uuid].version === adapter.version && !replace) {
                 reject(`An adapter with the UUID ${adapter.uuid} (version ${adapter.version}) is already attached.`);
             } else {
                 this.adapters[adapter.uuid] = adapter;
