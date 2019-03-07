@@ -42,6 +42,10 @@ export class AWClient {
         return this.adapters;
     }
 
+    /**
+     * Returns a new AdapterContext.
+     * @param adapter the adapter to generate an AdapterContext for
+     */
     getAdapterContext(adapter: Adapter) {
         return new AdapterContext(this.wrapper, adapter);
     }
