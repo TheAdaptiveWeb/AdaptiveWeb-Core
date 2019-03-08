@@ -36,6 +36,21 @@ export class AWClient {
     }
 
     /**
+     * Saves global options (used by the configuration site and interacting with awcli)
+     * @param newOptions the options to save
+     */
+    setGlobalOptions(newOptions: any): Promise<any> {
+        return this.wrapper.storage.set('globalOptions', newOptions);
+    }
+
+    /**
+     * Fetch the global options.
+     */
+    getGlobalOptions(): Promise<any> {
+        return this.wrapper.storage.get('globalOptions');
+    }
+
+    /**
      * Get the adapters
      */
     getAdapters() {
