@@ -29,11 +29,28 @@ class AWClient {
         });
     }
     /**
+     * Saves global options (used by the configuration site and interacting with awcli)
+     * @param newOptions the options to save
+     */
+    setGlobalOptions(newOptions) {
+        return this.wrapper.storage.set('globalOptions', newOptions);
+    }
+    /**
+     * Fetch the global options.
+     */
+    getGlobalOptions() {
+        return this.wrapper.storage.get('globalOptions');
+    }
+    /**
      * Get the adapters
      */
     getAdapters() {
         return this.adapters;
     }
+    /**
+     * Returns a new AdapterContext.
+     * @param adapter the adapter to generate an AdapterContext for
+     */
     getAdapterContext(adapter) {
         return new AdapterContext_1.AdapterContext(this.wrapper, adapter);
     }
@@ -41,9 +58,9 @@ class AWClient {
      * Attaches an adapter
      * @param adapter the adapter to attach
      */
-    attachAdapter(adapter) {
+    attachAdapter(adapter, replace = false) {
         return new Promise((resolve, reject) => {
-            if (this.adapters[adapter.uuid] != undefined && this.adapters[adapter.uuid].version === adapter.version) {
+            if (this.adapters[adapter.uuid] != undefined && this.adapters[adapter.uuid].version === adapter.version && !replace) {
                 reject(`An adapter with the UUID ${adapter.uuid} (version ${adapter.version}) is already attached.`);
             }
             else {

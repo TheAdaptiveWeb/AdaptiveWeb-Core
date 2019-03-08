@@ -30,6 +30,7 @@ export function generateAdapter(uuid: string = 'uuid1'): Adapter {
 export function getGenericWrapper(): Wrapper {
     return new (class _ extends Wrapper {
         name = '_';
+        version = '0';
         xhr = new (class _ implements XHRService {
             request(url: string, options: any = new XHROptions): Promise<any> {
                 return new Promise<any>((resolve, reject) => {

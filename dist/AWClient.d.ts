@@ -24,17 +24,30 @@ export declare class AWClient {
     constructor(wrapper: Wrapper);
     init(): Promise<any>;
     /**
+     * Saves global options (used by the configuration site and interacting with awcli)
+     * @param newOptions the options to save
+     */
+    setGlobalOptions(newOptions: any): Promise<any>;
+    /**
+     * Fetch the global options.
+     */
+    getGlobalOptions(): Promise<any>;
+    /**
      * Get the adapters
      */
     getAdapters(): {
         [uuid: string]: Adapter;
     };
+    /**
+     * Returns a new AdapterContext.
+     * @param adapter the adapter to generate an AdapterContext for
+     */
     getAdapterContext(adapter: Adapter): AdapterContext;
     /**
      * Attaches an adapter
      * @param adapter the adapter to attach
      */
-    attachAdapter(adapter: Adapter): Promise<any>;
+    attachAdapter(adapter: Adapter, replace?: boolean): Promise<any>;
     /**
      * Detach an adapter
      * @param uuid the uuid of the adapter to detach

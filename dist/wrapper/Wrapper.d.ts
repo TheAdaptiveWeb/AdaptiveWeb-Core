@@ -23,6 +23,10 @@ export declare abstract class Wrapper {
      */
     abstract name: string;
     /**
+     * The version of this wrapper
+     */
+    abstract version: string;
+    /**
      * The storage service
      */
     abstract storage: StorageService;
