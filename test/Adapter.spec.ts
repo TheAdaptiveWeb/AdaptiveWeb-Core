@@ -60,6 +60,8 @@ describe('Adapter spec', () => {
                                   adapterObj.description,
                                   adapterObj.version,
                                   adapterObj.script,
+                                  adapterObj.developer,
+                                  adapterObj.tags,
                                   adapterObj.preferenceSchema);
         adapter.execute(new AdapterContext(wrapper, adapter));
     });
