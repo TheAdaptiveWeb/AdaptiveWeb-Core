@@ -18,12 +18,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Adapters are adaptive modules to be injected into the page.
  */
 class Adapter {
-    constructor(uuid, name, description, version, script = '', tags = [], preferenceSchema = {}) {
+    constructor(uuid, name, description, version, script = '', developer = false, tags = [], preferenceSchema = {}) {
         this.uuid = uuid;
         this.name = name;
         this.description = description;
         this.version = version;
         this.script = script;
+        this.developer = developer;
         this.tags = tags;
         this.preferenceSchema = preferenceSchema;
     }
@@ -42,7 +43,7 @@ class Adapter {
     static fromObject(obj) {
         if (typeof obj === 'string')
             obj = JSON.parse(obj);
-        return new Adapter(obj.uuid, obj.name, obj.description, obj.version, obj.script, obj.preferenceSchema);
+        return new Adapter(obj.uuid, obj.name, obj.description, obj.version, obj.script, obj.developer, obj.tags, obj.preferenceSchema);
     }
 }
 exports.Adapter = Adapter;

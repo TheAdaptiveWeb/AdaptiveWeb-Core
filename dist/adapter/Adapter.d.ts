@@ -46,7 +46,8 @@ export declare class Adapter {
      * Tags that this adapter
      */
     tags: string[];
-    constructor(uuid: string, name: string, description: string, version: string, script?: string, tags?: string[], preferenceSchema?: AdapterPreferenceSchema);
+    developer: boolean;
+    constructor(uuid: string, name: string, description: string, version: string, script?: string, developer?: boolean, tags?: string[], preferenceSchema?: AdapterPreferenceSchema);
     /**
      * Executes the adapter code.
      */

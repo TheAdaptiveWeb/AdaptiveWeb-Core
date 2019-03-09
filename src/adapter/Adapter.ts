@@ -49,12 +49,15 @@ export class Adapter {
      * Tags that this adapter
      */
     tags: string[];
+    /* Denotes whether this adapter was installed from developer mode */
+    developer: boolean;
 
     constructor(uuid: string,
                 name: string,
                 description: string,
                 version: string,
                 script: string = '',
+                developer: boolean = false,
                 tags: string[] = [],
                 preferenceSchema: AdapterPreferenceSchema = {}
                 ) {
@@ -63,6 +66,7 @@ export class Adapter {
         this.description = description;
         this.version = version;
         this.script = script;
+        this.developer = developer;
         this.tags = tags;
         this.preferenceSchema = preferenceSchema;
     }
@@ -83,7 +87,14 @@ export class Adapter {
     static fromObject(obj: any): Adapter {
         if (typeof obj === 'string') obj = JSON.parse(obj);
 
-        return new Adapter(obj.uuid, obj.name, obj.description, obj.version, obj.script, obj.preferenceSchema);
+        return new Adapter(obj.uuid, 
+                           obj.name, 
+                           obj.description, 
+                           obj.version, 
+                           obj.script, 
+                           obj.developer, 
+                           obj.tags, 
+                           obj.preferenceSchema);
     }
 
 }
