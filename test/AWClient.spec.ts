@@ -72,4 +72,46 @@ describe('AWClient tests', () => {
         });
     });
 
+    it('should set default adapter preferences', (done) => {
+        let adapter: Adapter = generateAdapter('uuid1');
+        adapter.preferenceSchema = {
+            key: {
+                type: "text",
+                friendlyName: "Adapter key",
+                description: "Adapter preference description",
+                default: "value"
+            },
+            key2: {
+                type: "text",
+                friendlyName: "Adapter key 2",
+                description: "Adapter preference description 2",
+                default: "value2"
+            }
+        };
+
+        awClient.attachAdapter(adapter).then((response: any) => {
+            let ctx = awClient.getAdapterContext(adapter);
+            ctx.getPreferences().then(res => {
+                expect(res['key']).to.equal('value');
+                expect(res['key2']).to.equal('value2');
+                done();
+            });
+        })
+    })
+
+    it('should save global options', (done) => {
+        awClient.setGlobalOptions({ optionKey: 'optionValue' }).then(res => {
+            done();
+        });
+    });
+
+    it('should load global options', (done) => {
+        awClient.setGlobalOptions({ optionKey: 'optionValue' }).then(() => {
+            awClient.getGlobalOptions().then(res => {
+                expect(res).to.deep.equal({ optionKey: 'optionValue' });
+                done();
+            });
+        });
+    })
+
 });

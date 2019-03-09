@@ -28,8 +28,21 @@ describe('Adapter spec', () => {
             name: 'TestAdapter',
             description: 'testAdapter_description',
             version: '1.0.0',
-            script: '',
-            preferenceSchema: {}
+            script: 'console.log("Hello!");',
+            preferenceSchema: {
+                key: {
+                    type: "text",
+                    friendlyName: "Adapter key",
+                    description: "Adapter preference description",
+                    default: "value"
+                },
+                key2: {
+                    type: "text",
+                    friendlyName: "Adapter key 2",
+                    description: "Adapter preference description 2",
+                    default: "value2"
+                }
+            }
         }
 
         wrapper = getGenericWrapper();
