@@ -36,7 +36,7 @@ export declare class AWClient {
      * Get the adapters
      */
     getAdapters(): {
-        [uuid: string]: Adapter;
+        [id: string]: Adapter;
     };
     /**
      * Returns a new AdapterContext.
@@ -50,13 +50,13 @@ export declare class AWClient {
     attachAdapter(adapter: Adapter, replace?: boolean): Promise<any>;
     /**
      * Detach an adapter
-     * @param uuid the uuid of the adapter to detach
+     * @param id the id of the adapter to detach
      */
-    detachAdapter(uuid: string): void;
+    detachAdapter(id: string): void;
     /**
      * Sets the preferences for an adapter
-     * @param uuid the uuid of the adapter
+     * @param id the id of the adapter
      * @param preferences the preferences to set
      */
-    setAdapterPreferences(uuid: string, preferences: any): void;
+    setAdapterPreferences(id: string, preferences: any): void;
 }

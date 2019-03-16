@@ -19,9 +19,9 @@ import { AdapterPreferenceSchema } from './AdapterPreferenceSchema';
  */
 export declare class Adapter {
     /**
-     * The universally unique identifier (UUID) of this adapter.
+     * The unique id of this adapter.
      */
-    uuid: string;
+    id: string;
     /**
      * The name of the adapter.
      */
@@ -47,7 +47,7 @@ export declare class Adapter {
      */
     tags: string[];
     developer: boolean;
-    constructor(uuid: string, name: string, description: string, version: string, script?: string, developer?: boolean, tags?: string[], preferenceSchema?: AdapterPreferenceSchema);
+    constructor(id: string, name: string, description: string, version: string, script?: string, developer?: boolean, tags?: string[], preferenceSchema?: AdapterPreferenceSchema);
     /**
      * Executes the adapter code.
      */

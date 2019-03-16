@@ -34,7 +34,7 @@ class AdapterContext {
      * Returns the preferences of this adapter
      */
     getPreferences() {
-        return this.wrapper.storage.get(this.adapter.uuid + '/preferences');
+        return this.wrapper.storage.get(this.adapter.id + '/preferences');
     }
 }
 exports.AdapterContext = AdapterContext;
