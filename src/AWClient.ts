@@ -71,10 +71,10 @@ export class AWClient {
      */
     attachAdapter(adapter: Adapter, replace: boolean = false): Promise<any> {
         return new Promise<any>((resolve, reject) => {
-            if (this.adapters[adapter.uuid] != undefined && this.adapters[adapter.uuid].version === adapter.version && !replace) {
-                reject(`An adapter with the UUID ${adapter.uuid} (version ${adapter.version}) is already attached.`);
+            if (this.adapters[adapter.id] != undefined && this.adapters[adapter.id].version === adapter.version && !replace) {
+                reject(`An adapter with the UUID ${adapter.id} (version ${adapter.version}) is already attached.`);
             } else {
-                this.adapters[adapter.uuid] = adapter;
+                this.adapters[adapter.id] = adapter;
                 this.wrapper.storage.set('adapters', this.adapters);
 
                 // Set this adapter's default preferences
@@ -82,7 +82,7 @@ export class AWClient {
                 Object.keys(adapter.preferenceSchema).forEach(key => {
                     preferences[key] = adapter.preferenceSchema[key].default;
                 });
-                this.setAdapterPreferences(adapter.uuid, preferences);
+                this.setAdapterPreferences(adapter.id, preferences);
                 resolve(this.adapters);
                 return;
             }
@@ -93,18 +93,18 @@ export class AWClient {
      * Detach an adapter
      * @param uuid the uuid of the adapter to detach
      */
-    detachAdapter(uuid: string) {
-        delete this.adapters[uuid];
+    detachAdapter(id: string) {
+        delete this.adapters[id];
         this.wrapper.storage.set('adapters', this.adapters);
     }
 
     /**
      * Sets the preferences for an adapter
-     * @param uuid the uuid of the adapter
+     * @param id the uuid of the adapter
      * @param preferences the preferences to set
      */
-    setAdapterPreferences(uuid: string, preferences: any) {
-        this.wrapper.storage.set(uuid + '/preferences', preferences);
+    setAdapterPreferences(id: string, preferences: any) {
+        this.wrapper.storage.set(id + '/preferences', preferences);
     }
 
 }

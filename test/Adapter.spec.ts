@@ -24,7 +24,7 @@ describe('Adapter spec', () => {
 
     before(() => {
         adapterObj = {
-            uuid: '0855cbc4-fa58-4d1b-a206-b07338f365d7',
+            id: 'adapter1',
             name: 'TestAdapter',
             description: 'testAdapter_description',
             version: '1.0.0',
@@ -50,7 +50,7 @@ describe('Adapter spec', () => {
 
     it('should initiate from object', () => {
         let adapter = Adapter.fromObject(adapterObj);
-        expect(adapter.uuid).to.be.string(adapterObj.uuid);
+        expect(adapter.id).to.be.string(adapterObj.id);
         expect(adapter.name).to.be.string(adapterObj.name);
         expect(adapter.description).to.be.string(adapterObj.description);
         expect(adapter.version).to.be.string(adapterObj.version);
@@ -59,7 +59,7 @@ describe('Adapter spec', () => {
 
     it('should initiate from string', () => {
         let adapter = Adapter.fromObject(JSON.stringify(adapterObj));
-        expect(adapter.uuid).to.be.string(adapterObj.uuid);
+        expect(adapter.id).to.be.string(adapterObj.id);
         expect(adapter.name).to.be.string(adapterObj.name);
         expect(adapter.description).to.be.string(adapterObj.description);
         expect(adapter.version).to.be.string(adapterObj.version);
@@ -68,7 +68,7 @@ describe('Adapter spec', () => {
 
     it('should be able to execute adapter', () => {
         // Consider better unit testing for eval
-        let adapter = new Adapter(adapterObj.uuid,
+        let adapter = new Adapter(adapterObj.id,
                                   adapterObj.name,
                                   adapterObj.description,
                                   adapterObj.version,

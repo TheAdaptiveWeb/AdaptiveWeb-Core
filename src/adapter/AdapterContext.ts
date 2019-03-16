@@ -48,7 +48,7 @@ export class AdapterContext implements IAdapterContext {
      * Returns the preferences of this adapter
      */
     getPreferences(): Promise<any> {
-        return this.wrapper.storage.get(this.adapter.uuid + '/preferences');
+        return this.wrapper.storage.get(this.adapter.id + '/preferences');
     }
 
 }

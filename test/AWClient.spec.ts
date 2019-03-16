@@ -33,19 +33,19 @@ describe('AWClient tests', () => {
     });
 
     it('should return the context for an adapter', () => {
-        let adapter: Adapter = generateAdapter('uuid1');
+        let adapter: Adapter = generateAdapter('id1');
         expect(awClient.getAdapterContext(adapter)).to.not.be.undefined;
     });
 
     it('should attach an adapter', () => {
-        let adapter: Adapter = generateAdapter('uuid1');
+        let adapter: Adapter = generateAdapter('id1');
         return awClient.attachAdapter(adapter).then(({}) => {
-            expect(awClient.getAdapters()['uuid1']).to.not.be.undefined;
+            expect(awClient.getAdapters()['id1']).to.not.be.undefined;
         });
     });
 
     it('should not attach duplicate adapter', (done) => {
-        let adapter: Adapter = generateAdapter('uuid1');
+        let adapter: Adapter = generateAdapter('id1');
         awClient.attachAdapter(adapter).then((response: any) => {
             awClient.attachAdapter(adapter).then(() => {}, (error: any) => {
                 done();
@@ -54,18 +54,18 @@ describe('AWClient tests', () => {
     });
 
     it('should remove attached adapter with detachAdapter', () => {
-        let adapter: Adapter = generateAdapter('uuid1');
+        let adapter: Adapter = generateAdapter('id1');
         return awClient.attachAdapter(adapter).then((response: any) => {
-            awClient.detachAdapter(adapter.uuid);
+            awClient.detachAdapter(adapter.id);
             expect(awClient.getAdapters()).to.deep.equal({});
         });
     });
 
     it('should save adapter preferences', (done) => {
-        let adapter: Adapter = generateAdapter('uuid1');
+        let adapter: Adapter = generateAdapter('id1');
         awClient.attachAdapter(adapter).then((response: any) => {
-            awClient.setAdapterPreferences(adapter.uuid, {});
-            wrapper.storage.get('uuid1/preferences').then((res: any) => {
+            awClient.setAdapterPreferences(adapter.id, {});
+            wrapper.storage.get('id1/preferences').then((res: any) => {
                 expect(res).to.not.be.undefined;
                 done();
             });
@@ -73,7 +73,7 @@ describe('AWClient tests', () => {
     });
 
     it('should set default adapter preferences', (done) => {
-        let adapter: Adapter = generateAdapter('uuid1');
+        let adapter: Adapter = generateAdapter('id1');
         adapter.preferenceSchema = {
             key: {
                 type: "text",

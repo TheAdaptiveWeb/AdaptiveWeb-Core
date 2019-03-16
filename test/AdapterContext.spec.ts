@@ -41,7 +41,7 @@ describe('AdapterContext spec', () => {
     });
 
     it('should be able to access preferences', (done) => {
-        wrapper.storage.set(adapter.uuid + '/preferences', {});
+        wrapper.storage.set(adapter.id + '/preferences', {});
         adapterContext.getPreferences().then((res: any) => {
             expect(res).to.not.be.undefined;
             done();

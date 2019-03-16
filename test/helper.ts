@@ -17,10 +17,10 @@ import { Adapter, Wrapper, XHRService, XHROptions, StorageService } from "../src
 
 /**
  * Generate an empty Adapter with an optional uuid
- * @param uuid the uuid of the adapter
+ * @param id the uuid of the adapter
  */
-export function generateAdapter(uuid: string = 'uuid1'): Adapter {
-    return new Adapter(uuid, '', '', '', '');
+export function generateAdapter(id: string = 'id1'): Adapter {
+    return new Adapter(id, '', '', '', '');
 }
 
 /**

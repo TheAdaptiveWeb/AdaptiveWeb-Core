@@ -22,7 +22,7 @@ import { AdapterPreferenceSchema } from './AdapterPreferenceSchema';
 export class Adapter {
 
     /**
-     * The universally unique identifier (UUID) of this adapter.
+     * The unique id of this adapter.
      */
     id: string;
     /**
