@@ -23,7 +23,7 @@ import { AdapterContext } from './adapter/AdapterContext';
 export class AWClient {
 
     private wrapper: Wrapper;
-    private adapters: { [uuid: string]:  Adapter } = {};
+    private adapters: { [id: string]:  Adapter } = {};
 
     constructor(wrapper: Wrapper) {
         this.wrapper = wrapper;   
@@ -72,7 +72,7 @@ export class AWClient {
     attachAdapter(adapter: Adapter, replace: boolean = false): Promise<any> {
         return new Promise<any>((resolve, reject) => {
             if (this.adapters[adapter.id] != undefined && this.adapters[adapter.id].version === adapter.version && !replace) {
-                reject(`An adapter with the UUID ${adapter.id} (version ${adapter.version}) is already attached.`);
+                reject(`An adapter with the ID ${adapter.id} (version ${adapter.version}) is already attached.`);
             } else {
                 this.adapters[adapter.id] = adapter;
                 this.wrapper.storage.set('adapters', this.adapters);
@@ -91,7 +91,7 @@ export class AWClient {
 
     /**
      * Detach an adapter
-     * @param uuid the uuid of the adapter to detach
+     * @param id the id of the adapter to detach
      */
     detachAdapter(id: string) {
         delete this.adapters[id];
@@ -100,7 +100,7 @@ export class AWClient {
 
     /**
      * Sets the preferences for an adapter
-     * @param id the uuid of the adapter
+     * @param id the id of the adapter
      * @param preferences the preferences to set
      */
     setAdapterPreferences(id: string, preferences: any) {
