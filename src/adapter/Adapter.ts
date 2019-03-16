@@ -24,7 +24,7 @@ export class Adapter {
     /**
      * The universally unique identifier (UUID) of this adapter.
      */
-    uuid: string;
+    id: string;
     /**
      * The name of the adapter.
      */
@@ -52,7 +52,7 @@ export class Adapter {
     /* Denotes whether this adapter was installed from developer mode */
     developer: boolean;
 
-    constructor(uuid: string,
+    constructor(id: string,
                 name: string,
                 description: string,
                 version: string,
@@ -61,7 +61,7 @@ export class Adapter {
                 tags: string[] = [],
                 preferenceSchema: AdapterPreferenceSchema = {}
                 ) {
-        this.uuid = uuid;
+        this.id = id;
         this.name = name;
         this.description = description;
         this.version = version;
@@ -87,7 +87,7 @@ export class Adapter {
     static fromObject(obj: any): Adapter {
         if (typeof obj === 'string') obj = JSON.parse(obj);
 
-        return new Adapter(obj.uuid, 
+        return new Adapter(obj.id, 
                            obj.name, 
                            obj.description, 
                            obj.version, 
