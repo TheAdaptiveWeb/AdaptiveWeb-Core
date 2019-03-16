@@ -31,6 +31,10 @@ export declare class Adapter {
      */
     description: string;
     /**
+     * Longer user friendly description (supports Markdown formatting) of the adapter.
+     */
+    about?: string;
+    /**
      * The version string.
      */
     version: string;
@@ -47,7 +51,7 @@ export declare class Adapter {
      */
     tags: string[];
     developer: boolean;
-    constructor(id: string, name: string, description: string, version: string, script?: string, developer?: boolean, tags?: string[], preferenceSchema?: AdapterPreferenceSchema);
+    constructor(id: string, name: string, description: string, version: string, script?: string, developer?: boolean, tags?: string[], preferenceSchema?: AdapterPreferenceSchema, about?: string);
     /**
      * Executes the adapter code.
      */

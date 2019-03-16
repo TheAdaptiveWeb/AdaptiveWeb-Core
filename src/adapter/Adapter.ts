@@ -34,6 +34,10 @@ export class Adapter {
      */
     description: string;
     /**
+     * Longer user friendly description (supports Markdown formatting) of the adapter.
+     */
+    about?: string;
+    /**
      * The version string.
      */
     version: string;
@@ -59,7 +63,8 @@ export class Adapter {
                 script: string = '',
                 developer: boolean = false,
                 tags: string[] = [],
-                preferenceSchema: AdapterPreferenceSchema = {}
+                preferenceSchema: AdapterPreferenceSchema = {},
+                about?: string
                 ) {
         this.id = id;
         this.name = name;
@@ -69,6 +74,7 @@ export class Adapter {
         this.developer = developer;
         this.tags = tags;
         this.preferenceSchema = preferenceSchema;
+        this.about = about;
     }
     
     /**
@@ -94,7 +100,8 @@ export class Adapter {
                            obj.script, 
                            obj.developer, 
                            obj.tags, 
-                           obj.preferenceSchema);
+                           obj.preferenceSchema,
+                           obj.about);
     }
 
 }

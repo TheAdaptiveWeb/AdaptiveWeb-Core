@@ -42,7 +42,8 @@ describe('Adapter spec', () => {
                     description: "Adapter preference description 2",
                     default: "value2"
                 }
-            }
+            },
+            about: 'About string'
         }
 
         wrapper = getGenericWrapper();
@@ -55,6 +56,7 @@ describe('Adapter spec', () => {
         expect(adapter.description).to.be.string(adapterObj.description);
         expect(adapter.version).to.be.string(adapterObj.version);
         expect(adapter.preferenceSchema).to.deep.equal(adapterObj.preferenceSchema);
+        expect(adapter.about).to.be.string(adapterObj.about);
     });
 
     it('should initiate from string', () => {
@@ -64,6 +66,7 @@ describe('Adapter spec', () => {
         expect(adapter.description).to.be.string(adapterObj.description);
         expect(adapter.version).to.be.string(adapterObj.version);
         expect(adapter.preferenceSchema).to.deep.equal(adapterObj.preferenceSchema);
+        expect(adapter.about).to.be.string(adapterObj.about);
     });
 
     it('should be able to execute adapter', () => {
