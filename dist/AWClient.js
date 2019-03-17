@@ -21,12 +21,17 @@ const AdapterContext_1 = require("./adapter/AdapterContext");
 class AWClient {
     constructor(wrapper) {
         this.adapters = {};
+        this._initiated = false;
         this.wrapper = wrapper;
     }
     init() {
         return this.wrapper.storage.get('adapters').then((adapters) => {
             this.adapters = adapters || {};
+            this._initiated = true;
         });
+    }
+    get initiated() {
+        return this._initiated;
     }
     /**
      * Saves global options (used by the configuration site and interacting with awcli)

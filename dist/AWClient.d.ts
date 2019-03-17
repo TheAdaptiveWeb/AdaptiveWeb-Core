@@ -21,8 +21,10 @@ import { AdapterContext } from './adapter/AdapterContext';
 export declare class AWClient {
     private wrapper;
     private adapters;
+    private _initiated;
     constructor(wrapper: Wrapper);
     init(): Promise<any>;
+    readonly initiated: boolean;
     /**
      * Saves global options (used by the configuration site and interacting with awcli)
      * @param newOptions the options to save
