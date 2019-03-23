@@ -21,7 +21,7 @@ export interface XHRService {
      * @param url the url to send the request to. Can contain interpolations.
      * @param options The options of the request.
      */
-    request(url: string, options: XHROptions): Promise<any>;
+    request(url: string, options: XHROptions | Object): Promise<any>;
 }
 /**
  * Contains options for an XHR request
