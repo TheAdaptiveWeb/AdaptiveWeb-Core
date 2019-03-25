@@ -65,11 +65,11 @@ export class XHROptions {
     /**
      * The method used to serialize data. Defaults to JSON.stringify.
      */
-    serialize: Function = JSON.stringify;
+    serialize: Function | Promise<any> = JSON.stringify;
     /**
      * The method used to deserialize data. Defaults to JSON.parse.
      */
-    deserialize: Function = JSON.parse;
+    deserialize: Function | Promise<any> = JSON.parse;
     /**
      * Content type
      */
