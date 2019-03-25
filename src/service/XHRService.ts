@@ -70,6 +70,10 @@ export class XHROptions {
      * The method used to deserialize data. Defaults to JSON.parse.
      */
     deserialize: Function = JSON.parse;
+    /**
+     * Content type
+     */
+    headers: { [key: string] : string };
 
     constructor(options: any = {}) {
         this.method = options.method || 'GET';
@@ -81,6 +85,10 @@ export class XHROptions {
         this.timeout = options.timeout;
         this.serialize = options.serialize || JSON.stringify;
         this.deserialize = options.deserialize || JSON.parse;
+        this.headers = options.headers || {
+            'Content-Type': 'application/json; charset=utf-8',
+            'Accept': 'application/json, text/*'
+        };
     }
 
     /**

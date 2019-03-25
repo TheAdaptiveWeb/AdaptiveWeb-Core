@@ -65,6 +65,12 @@ export declare class XHROptions {
      * The method used to deserialize data. Defaults to JSON.parse.
      */
     deserialize: Function;
+    /**
+     * Content type
+     */
+    headers: {
+        [key: string]: string;
+    };
     constructor(options?: any);
     /**
      * Encodes url parameters based on the data set.

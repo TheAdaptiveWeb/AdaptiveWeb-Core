@@ -46,6 +46,10 @@ class XHROptions {
         this.timeout = options.timeout;
         this.serialize = options.serialize || JSON.stringify;
         this.deserialize = options.deserialize || JSON.parse;
+        this.headers = options.headers || {
+            'Content-Type': 'application/json; charset=utf-8',
+            'Accept': 'application/json, text/*'
+        };
     }
     /**
      * Encodes url parameters based on the data set.
