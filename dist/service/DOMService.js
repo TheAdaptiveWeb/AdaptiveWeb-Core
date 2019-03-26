@@ -1,3 +1,4 @@
+"use strict";
 /**
  *  Copyright 2019 The Adaptive Web. All Rights Reserved.
  *
@@ -12,6 +13,5 @@
  *  express or implied. See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-export * from './StorageService';
-export * from './XHRService';
-export * from './DOMService';
+Object.defineProperty(exports, "__esModule", { value: true });
+//# sourceMappingURL=DOMService.js.map

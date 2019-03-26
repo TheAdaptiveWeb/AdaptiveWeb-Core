@@ -13,7 +13,7 @@
  *  permissions and limitations under the License.
  */
 
-import { Adapter, Wrapper, XHRService, XHROptions, StorageService } from "../src/main";
+import { Adapter, Wrapper, XHRService, XHROptions, StorageService, DOMService, AWCard, AWButton, AWText } from "../src/main";
 
 /**
  * Generate an empty Adapter with an optional uuid
@@ -38,7 +38,7 @@ export function getGenericWrapper(): Wrapper {
                 });
             }
         })();
-        storage = new (class _storage implements StorageService {
+        storage = new (class _ implements StorageService {
             private store?: any = {};
 
             get(key: any){
@@ -47,10 +47,39 @@ export function getGenericWrapper(): Wrapper {
                 });
             }
 
-            set(key:string,val:any){return new Promise<any>((resolve, reject) => {
+            set(key:string,val:any){return new Promise<any>((resolve, _reject) => {
                 this.store[key] = val;
                 resolve();
             });}
+        })();
+        dom = new (class _ implements DOMService {
+            card(_children: HTMLElement[], _cssProperties: { [key: string] : string }): AWCard {
+                return {
+                    element: document.createElement('div'),
+                    setCSSProperties: function(_properties: { [key: string] : string }) {},
+                    setCSSProperty: function(_property: string, _value: string) {},
+                    appendChild: function(_child: HTMLElement) {}
+                }
+            }
+            button(_text: string, _onClick: Function, _type: string, _cssProperties: { [key: string] : string }): AWButton {
+                return {
+                    element: document.createElement('button'),
+                    setCSSProperties: function(_properties: { [key: string] : string }) {},
+                    setCSSProperty: function(_property: string, _value: string) {},
+                    appendChild: function(_child: HTMLElement) {},
+                    setText: function(_text: string) {},
+                    setType: function(_type: string) {}
+                }
+            }
+            text(text: string, size: number, cssProperties: { [key: string] : string }): AWText {
+                return {
+                    element: document.createElement('div'),
+                    setCSSProperties: function(properties: { [key: string] : string }) {},
+                    setCSSProperty: function(property: string, value: string) {},
+                    appendChild: function(child: HTMLElement) {},
+                    setText: function(_text: string) {},
+                }
+            }
         })();
     })();
 }

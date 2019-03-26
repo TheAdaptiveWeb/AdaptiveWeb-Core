@@ -12,7 +12,7 @@
  *  express or implied. See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-import { StorageService, XHRService } from "../service";
+import { StorageService, XHRService, DOMService } from "../service";
 /**
  * A wrapper is a device/browser implementation of the service
  * implementations provided by the core platform.
@@ -34,4 +34,8 @@ export declare abstract class Wrapper {
      * The XHR service
      */
     abstract xhr: XHRService;
+    /**
+     * The DOM service
+     */
+    abstract dom: DOMService;
 }

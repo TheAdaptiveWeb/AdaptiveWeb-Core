@@ -13,7 +13,7 @@
  *  permissions and limitations under the License.
  */
 
-import { StorageService, XHRService } from "../service";
+import { StorageService, XHRService, DOMService } from "../service";
 
 /**
  * A wrapper is a device/browser implementation of the service
@@ -37,5 +37,9 @@ export abstract class Wrapper {
      * The XHR service
      */
     abstract xhr: XHRService;
+    /**
+     * The DOM service
+     */
+    abstract dom: DOMService;
 
 }

@@ -15,3 +15,4 @@
 
 export * from './StorageService';
 export * from './XHRService';
+export * from './DOMService';
