@@ -64,8 +64,12 @@ class XHROptions {
     encodeUrlParameters(url) {
         Object.keys(this.data).forEach((key) => {
             if (url.indexOf(':' + key) >= 0) {
+                let segments = url.split('/');
+                url = `${segments[0]}/${segments[1]}/${segments[2]}`;
                 let regex = new RegExp(':' + key, 'g');
-                url = url.replace(regex, this.data[key]);
+                segments.splice(3).forEach(x => {
+                    url += '/' + x.replace(regex, this.data[key]);
+                });
             }
         });
         return url;
