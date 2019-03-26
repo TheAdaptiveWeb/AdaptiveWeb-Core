@@ -62,6 +62,8 @@ class XHROptions {
      * @param url the url to encode
      */
     encodeUrlParameters(url) {
+        if (this.data instanceof Blob || typeof (this.data) === 'string')
+            return url;
         Object.keys(this.data).forEach((key) => {
             if (url.indexOf(':' + key) >= 0) {
                 let segments = url.split('/');

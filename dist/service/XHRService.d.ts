@@ -36,7 +36,9 @@ export declare class XHROptions {
     /**
      * Data to be serialized into the querystring (for GET requests) or body for other methods.
      */
-    [data: string]: any;
+    data: Blob | string | {
+        [key: string]: any;
+    };
     /**
      * Whether the request should be sent asynchronously. Defaults to true.
      */

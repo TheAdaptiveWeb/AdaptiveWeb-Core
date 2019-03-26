@@ -41,7 +41,7 @@ export class XHROptions {
     /**
      * Data to be serialized into the querystring (for GET requests) or body for other methods.
      */
-    [data: string]: any;
+    data: Blob | string | { [key: string]: any };
     /**
      * Whether the request should be sent asynchronously. Defaults to true.
      */
@@ -102,13 +102,14 @@ export class XHROptions {
      * @param url the url to encode
      */
     encodeUrlParameters(url: string): string {
+        if (this.data instanceof Blob || typeof(this.data) === 'string') return url;
         Object.keys(this.data).forEach((key: string) => {
             if (url.indexOf(':' + key) >= 0) {
                 let segments = url.split('/');
                 url = `${segments[0]}/${segments[1]}/${segments[2]}`;
                 let regex: RegExp = new RegExp(':' + key, 'g');
                 segments.splice(3).forEach(x => {
-                    url += '/' + x.replace(regex, this.data[key]);
+                    url += '/' + x.replace(regex, (<any>this.data)[key]);
                 });
             }
         });
