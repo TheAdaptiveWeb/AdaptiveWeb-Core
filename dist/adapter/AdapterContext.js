@@ -36,6 +36,9 @@ class AdapterContext {
     getPreferences() {
         return this.wrapper.storage.get(this.adapter.id + '/preferences');
     }
+    get ui() {
+        return this.wrapper.dom;
+    }
 }
 exports.AdapterContext = AdapterContext;
 //# sourceMappingURL=AdapterContext.js.map

@@ -23,7 +23,7 @@ export interface DOMService {
      * @param children the children of this element
      * @param cssProperties the css properties of the card
      */
-    card(children: HTMLElement[], cssProperties: { [key: string] : string }): AWCard;
+    card(children?: HTMLElement[] | AWElement[], cssProperties?: { [key: string] : string }): AWCard;
 
     /**
      * Returns a button
@@ -32,7 +32,7 @@ export interface DOMService {
      * @param type 
      * @param cssProperties 
      */
-    button(text: string, onClick: Function, type: string, cssProperties: { [key: string] : string }): AWButton;
+    button(text: string, onClick: Function, type?: string, cssProperties?: { [key: string] : string }): AWButton;
 
     /**
      * Returns a text element
@@ -40,13 +40,11 @@ export interface DOMService {
      * @param size 
      * @param cssProperties 
      */
-    text(text: string, size: number, cssProperties: { [key: string] : string }): AWText;
+    text(text: string, size?: number, cssProperties?: { [key: string] : string }): AWText;
 
 }
 
 export interface AWElement {
-
-    element: HTMLElement;
 
     setCSSProperties(properties: { [key: string]: string }): void;
     setCSSProperty(property: string, value: string): void;

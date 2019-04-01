@@ -14,7 +14,7 @@
  */
 
 import { Adapter } from './Adapter';
-import { XHROptions } from '../service';
+import { XHROptions, DOMService } from '../service';
 import { Wrapper } from '../wrapper';
 
 export interface IAdapterContext {
@@ -49,6 +49,10 @@ export class AdapterContext implements IAdapterContext {
      */
     getPreferences(): Promise<any> {
         return this.wrapper.storage.get(this.adapter.id + '/preferences');
+    }
+
+    get ui(): DOMService {
+        return this.wrapper.dom;
     }
 
 }

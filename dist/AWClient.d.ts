@@ -61,4 +61,10 @@ export declare class AWClient {
      * @param preferences the preferences to set
      */
     setAdapterPreferences(id: string, preferences: any): void;
+    /**
+     * Updates the preferences of an adapter by providing a subset of preference values
+     * @param id the id of the adapter
+     * @param preferences a subset of the adapter preferences to update
+     */
+    updateAdapterPreferences(id: string, preferences: any): void;
 }

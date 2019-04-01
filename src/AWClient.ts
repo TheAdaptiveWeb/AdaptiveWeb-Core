@@ -34,6 +34,7 @@ export class AWClient {
         return this.wrapper.storage.get('adapters').then((adapters: any) => {
             this.adapters = adapters || {};
             this._initiated = true;
+            return adapters;
         });
     }
 
@@ -111,6 +112,22 @@ export class AWClient {
      */
     setAdapterPreferences(id: string, preferences: any) {
         this.wrapper.storage.set(id + '/preferences', preferences);
+    }
+
+    /**
+     * Updates the preferences of an adapter by providing a subset of preference values
+     * @param id the id of the adapter
+     * @param preferences a subset of the adapter preferences to update
+     */
+    updateAdapterPreferences(id: string, preferences: any) {
+        this.wrapper.storage.get(id + '/preferences').then((prevPrefs: any) => {
+            Object.keys(prevPrefs).forEach(key => {
+                if (preferences[key] !== undefined && prevPrefs[key] !== preferences[key]) {
+                    prevPrefs[key] = preferences;
+                }
+            });
+            this.setAdapterPreferences(id, prevPrefs);
+        });
     }
 
 }

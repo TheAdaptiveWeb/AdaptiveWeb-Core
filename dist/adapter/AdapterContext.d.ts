@@ -13,7 +13,7 @@
  *  permissions and limitations under the License.
  */
 import { Adapter } from './Adapter';
-import { XHROptions } from '../service';
+import { XHROptions, DOMService } from '../service';
 import { Wrapper } from '../wrapper';
 export interface IAdapterContext {
     request(url: string, options: XHROptions): Promise<any>;
@@ -36,4 +36,5 @@ export declare class AdapterContext implements IAdapterContext {
      * Returns the preferences of this adapter
      */
     getPreferences(): Promise<any>;
+    readonly ui: DOMService;
 }
