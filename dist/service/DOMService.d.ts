@@ -49,7 +49,14 @@ export interface AWElement {
         [key: string]: string;
     }): void;
     setCSSProperty(property: string, value: string): void;
-    appendChild(child: HTMLElement): void;
+    appendChild(child: HTMLElement | AWElement): void;
+    /**
+     * Sets the visibility of the element for sighted users. Set
+     * to true if you want to hide an element from sighted users,
+     * but still allow screen-reader users to access it.
+     * @param visibility whether or not the element is visible for sighted users
+     */
+    setSightedVisibility(visibility: boolean): void;
 }
 export interface AWCard extends AWElement {
     element: HTMLDivElement;
