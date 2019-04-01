@@ -25,7 +25,7 @@ export class AWClient {
     private wrapper: Wrapper;
     private adapters: { [id: string]:  Adapter } = {};
     private _initiated: boolean = false;
-
+    
     constructor(wrapper: Wrapper) {
         this.wrapper = wrapper;   
     }
@@ -34,7 +34,7 @@ export class AWClient {
         return this.wrapper.storage.get('adapters').then((adapters: any) => {
             this.adapters = adapters || {};
             this._initiated = true;
-            return adapters;
+            return this.adapters;
         });
     }
 

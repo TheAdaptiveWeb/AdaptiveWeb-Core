@@ -28,7 +28,7 @@ class AWClient {
         return this.wrapper.storage.get('adapters').then((adapters) => {
             this.adapters = adapters || {};
             this._initiated = true;
-            return adapters;
+            return this.adapters;
         });
     }
     get initiated() {
