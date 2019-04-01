@@ -48,7 +48,7 @@ export interface AWElement {
 
     setCSSProperties(properties: { [key: string]: string }): void;
     setCSSProperty(property: string, value: string): void;
-    appendChild(child: HTMLElement): void;
+    appendChild(child: HTMLElement | AWElement): void;
 
 }
 
