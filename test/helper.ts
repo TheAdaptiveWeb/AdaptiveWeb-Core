@@ -58,7 +58,8 @@ export function getGenericWrapper(): Wrapper {
                     element: document.createElement('div'),
                     setCSSProperties: function(_properties: { [key: string] : string }) {},
                     setCSSProperty: function(_property: string, _value: string) {},
-                    appendChild: function(_child: HTMLElement) {}
+                    appendChild: function(_child: HTMLElement) {},
+                    setSightedVisibility: function() {}
                 }
             }
             button(_text: string, _onClick: Function, _type: string, _cssProperties: { [key: string] : string }): AWButton {
@@ -68,7 +69,8 @@ export function getGenericWrapper(): Wrapper {
                     setCSSProperty: function(_property: string, _value: string) {},
                     appendChild: function(_child: HTMLElement) {},
                     setText: function(_text: string) {},
-                    setType: function(_type: string) {}
+                    setType: function(_type: string) {},
+                    setSightedVisibility: function() {}
                 }
             }
             text(text: string, size: number, cssProperties: { [key: string] : string }): AWText {
@@ -78,6 +80,7 @@ export function getGenericWrapper(): Wrapper {
                     setCSSProperty: function(property: string, value: string) {},
                     appendChild: function(child: HTMLElement) {},
                     setText: function(_text: string) {},
+                    setSightedVisibility: function() {}
                 }
             }
         })();
