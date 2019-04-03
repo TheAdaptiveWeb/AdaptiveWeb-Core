@@ -50,8 +50,7 @@ export declare class Adapter {
      * Tags that this adapter
      */
     tags: string[];
-    developer: boolean;
-    constructor(id: string, name: string, description: string, version: string, script?: string, developer?: boolean, tags?: string[], preferenceSchema?: AdapterPreferenceSchema, about?: string);
+    constructor(id: string, name: string, description: string, version: string, script?: string, tags?: string[], preferenceSchema?: AdapterPreferenceSchema, about?: string);
     /**
      * Executes the adapter code.
      */
