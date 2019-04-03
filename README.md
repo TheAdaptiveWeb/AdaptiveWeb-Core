@@ -1,9 +1,9 @@
 <div align="center"><img width="100" src="https://avatars2.githubusercontent.com/u/34218781?s=200&v=4" /></div>
 <h1 align="center">AdaptiveWeb Core</h1>
-<div align="center"><i>New to AdaptiveWeb? Check out our <a href="#">introduction for developers</a>.</i></div>
+<div align="center"><i>New to AdaptiveWeb? <a href="https://docs.adaptiveweb.io/">Check out our docs</a>.</i></div>
 <br>
 
-[![Build Status](https://travis-ci.org/TheAdaptiveWeb/AdaptiveWeb-Core.svg?branch=master)](https://travis-ci.org/TheAdaptiveWeb/AdaptiveWeb-Core) [![Coverage Status](https://coveralls.io/repos/github/TheAdaptiveWeb/AdaptiveWeb-Core/badge.svg?branch=master)](https://coveralls.io/github/TheAdaptiveWeb/AdaptiveWeb-Core?branch=master) [![npm version](https://badge.fury.io/js/adaptiveweb.svg)](https://badge.fury.io/js/adaptiveweb) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTheAdaptiveWeb%2FAdaptiveWeb-Core.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FTheAdaptiveWeb%2FAdaptiveWeb-Core?ref=badge_shield)
+[![Build Status](https://travis-ci.org/TheAdaptiveWeb/AdaptiveWeb-Core.svg?branch=master)](https://travis-ci.org/TheAdaptiveWeb/AdaptiveWeb-Core) [![Coverage Status](https://coveralls.io/repos/github/TheAdaptiveWeb/AdaptiveWeb-Core/badge.svg?branch=master)](https://coveralls.io/github/TheAdaptiveWeb/AdaptiveWeb-Core?branch=master) [![npm version](https://badge.fury.io/js/adaptiveweb.svg)](https://badge.fury.io/js/adaptiveweb) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTheAdaptiveWeb%2FAdaptiveWeb-Core.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FTheAdaptiveWeb%2FAdaptiveWeb-Core?ref=badge_shield) [![Gitter](https://badges.gitter.im/TheAdaptiveWeb/community.svg)](https://gitter.im/TheAdaptiveWeb/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 AdaptiveWeb Core provides an abstraction layer for developers to build adaptive web accessibility modules (_adapters_) that run across browsers and platforms.
 
