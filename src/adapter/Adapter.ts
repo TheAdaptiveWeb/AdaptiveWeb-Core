@@ -53,15 +53,12 @@ export class Adapter {
      * Tags that this adapter
      */
     tags: string[];
-    /* Denotes whether this adapter was installed from developer mode */
-    developer: boolean;
 
     constructor(id: string,
                 name: string,
                 description: string,
                 version: string,
                 script: string = '',
-                developer: boolean = false,
                 tags: string[] = [],
                 preferenceSchema: AdapterPreferenceSchema = {},
                 about?: string
@@ -71,7 +68,6 @@ export class Adapter {
         this.description = description;
         this.version = version;
         this.script = script;
-        this.developer = developer;
         this.tags = tags;
         this.preferenceSchema = preferenceSchema;
         this.about = about;
@@ -97,8 +93,7 @@ export class Adapter {
                            obj.name, 
                            obj.description, 
                            obj.version, 
-                           obj.script, 
-                           obj.developer, 
+                           obj.script,
                            obj.tags, 
                            obj.preferenceSchema,
                            obj.about);

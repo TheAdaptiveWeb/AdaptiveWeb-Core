@@ -23,7 +23,7 @@ export interface DOMService {
      * @param children the children of this element
      * @param cssProperties the css properties of the card
      */
-    card(children?: HTMLElement[] | AWElement[], cssProperties?: { [key: string] : string }): AWCard;
+    card(children?: (HTMLElement | AWElement)[], cssProperties?: { [key: string] : string }): AWCard;
 
     /**
      * Returns a button
