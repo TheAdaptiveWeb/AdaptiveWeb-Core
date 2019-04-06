@@ -108,11 +108,18 @@ class AWClient {
         this.wrapper.storage.get(id + '/preferences').then((prevPrefs) => {
             Object.keys(prevPrefs).forEach(key => {
                 if (preferences[key] !== undefined && prevPrefs[key] !== preferences[key]) {
-                    prevPrefs[key] = preferences;
+                    prevPrefs[key] = preferences[key];
                 }
             });
             this.setAdapterPreferences(id, prevPrefs);
         });
+    }
+    /**
+     * Get the current preferences of an adapter by its id.
+     * @param id the id of the adapter
+     */
+    getAdapterPreferences(id) {
+        return this.wrapper.storage.get(id + '/preferences');
     }
 }
 exports.AWClient = AWClient;

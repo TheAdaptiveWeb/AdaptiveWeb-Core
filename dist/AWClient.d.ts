@@ -67,4 +67,9 @@ export declare class AWClient {
      * @param preferences a subset of the adapter preferences to update
      */
     updateAdapterPreferences(id: string, preferences: any): void;
+    /**
+     * Get the current preferences of an adapter by its id.
+     * @param id the id of the adapter
+     */
+    getAdapterPreferences(id: string): Promise<any>;
 }
