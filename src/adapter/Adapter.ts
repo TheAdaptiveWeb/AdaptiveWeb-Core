@@ -53,6 +53,10 @@ export class Adapter {
      * Tags that this adapter
      */
     tags: string[];
+    /**
+     * Determines if this adapter is a developer mode adapter
+     */
+    developer: boolean;
 
     constructor(id: string,
                 name: string,
@@ -61,7 +65,8 @@ export class Adapter {
                 script: string = '',
                 tags: string[] = [],
                 preferenceSchema: AdapterPreferenceSchema = {},
-                about?: string
+                about?: string,
+                developer: boolean = false
                 ) {
         this.id = id;
         this.name = name;
@@ -71,6 +76,7 @@ export class Adapter {
         this.tags = tags;
         this.preferenceSchema = preferenceSchema;
         this.about = about;
+        this.developer = developer;
     }
     
     /**
@@ -96,7 +102,8 @@ export class Adapter {
                            obj.script,
                            obj.tags, 
                            obj.preferenceSchema,
-                           obj.about);
+                           obj.about,
+                           obj.developer);
     }
 
 }
