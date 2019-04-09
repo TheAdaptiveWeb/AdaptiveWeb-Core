@@ -12,7 +12,7 @@
  *  express or implied. See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-import { StorageService, XHRService, DOMService } from "../service";
+import { StorageService, XHRService, DOMService } from '../service';
 /**
  * A wrapper is a device/browser implementation of the service
  * implementations provided by the core platform.

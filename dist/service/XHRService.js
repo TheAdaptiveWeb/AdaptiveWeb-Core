@@ -48,7 +48,7 @@ class XHROptions {
         this.deserialize = options.deserialize || JSON.parse;
         this.headers = options.headers || {
             'Content-Type': 'application/json; charset=utf-8',
-            'Accept': 'application/json, text/*'
+            Accept: 'application/json, text/*'
         };
     }
     /**
@@ -62,7 +62,7 @@ class XHROptions {
      * @param url the url to encode
      */
     encodeUrlParameters(url) {
-        if (this.data instanceof Blob || typeof (this.data) === 'string')
+        if (this.data instanceof Blob || typeof this.data === 'string')
             return url;
         Object.keys(this.data).forEach((key) => {
             if (url.indexOf(':' + key) >= 0) {

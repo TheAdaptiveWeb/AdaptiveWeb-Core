@@ -19,7 +19,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 const browser_1 = require("@sentry/browser");
 browser_1.init({
-    dsn: 'https://f1f8d7c57bf5460185c988e12cf4dd41@sentry.io/1380565',
+    dsn: 'https://f1f8d7c57bf5460185c988e12cf4dd41@sentry.io/1380565'
 });
 // TODO: Add context tagging
 //# sourceMappingURL=Sentry.js.map

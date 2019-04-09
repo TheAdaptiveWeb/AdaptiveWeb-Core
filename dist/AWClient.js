@@ -66,7 +66,9 @@ class AWClient {
      */
     attachAdapter(adapter, replace = false) {
         return new Promise((resolve, reject) => {
-            if (this.adapters[adapter.id] != undefined && this.adapters[adapter.id].version === adapter.version && !replace) {
+            if (this.adapters[adapter.id] != undefined &&
+                this.adapters[adapter.id].version === adapter.version &&
+                !replace) {
                 reject(`An adapter with the ID ${adapter.id} (version ${adapter.version}) is already attached.`);
             }
             else {
@@ -107,7 +109,8 @@ class AWClient {
     updateAdapterPreferences(id, preferences) {
         this.wrapper.storage.get(id + '/preferences').then((prevPrefs) => {
             Object.keys(prevPrefs).forEach(key => {
-                if (preferences[key] !== undefined && prevPrefs[key] !== preferences[key]) {
+                if (preferences[key] !== undefined &&
+                    prevPrefs[key] !== preferences[key]) {
                     prevPrefs[key] = preferences[key];
                 }
             });

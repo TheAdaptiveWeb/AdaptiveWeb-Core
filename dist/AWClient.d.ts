@@ -12,8 +12,8 @@
  *  express or implied. See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-import { Wrapper } from "./wrapper";
-import { Adapter } from "./adapter/Adapter";
+import { Wrapper } from './wrapper';
+import { Adapter } from './adapter/Adapter';
 import { AdapterContext } from './adapter/AdapterContext';
 /**
  * Maintains application state.

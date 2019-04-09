@@ -27,10 +27,10 @@ export declare class AdapterContext implements IAdapterContext {
     private adapter;
     constructor(wrapper: Wrapper, adapter: Adapter);
     /**
-      * Sends a XHR (AJAX) request and returns it as a promise.
-      * @param url the url to send the request to. Can contain interpolations.
-      * @param options The options of the request.
-      */
+     * Sends a XHR (AJAX) request and returns it as a promise.
+     * @param url the url to send the request to. Can contain interpolations.
+     * @param options The options of the request.
+     */
     request(url: string, options: XHROptions): Promise<any>;
     /**
      * Returns the preferences of this adapter
